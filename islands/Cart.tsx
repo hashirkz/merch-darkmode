@@ -79,7 +79,7 @@ export default function Cart() {
 function CartInner(props: { cart: CartData | undefined }) {
   const corners = "rounded(tl-2xl tr-2xl sm:(tr-none bl-2xl))";
   const card =
-    `py-8 px-6 h-full bg-darkgray ${corners} flex flex-col justify-between dark:bg-darkgray`;
+    `py-8 px-6 h-full bg-white ${corners} flex flex-col justify-between dark:bg-darkgray`;
   const { data: cart } = useCart();
 
   const checkout = (e: Event) => {
@@ -106,7 +106,7 @@ function CartInner(props: { cart: CartData | undefined }) {
           }}
         >
           <svg
-            class="w-6 h-6 fill-current text-gray-600"
+            class="w-6 h-6 fill-current text-gray-600 dark:text-white"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -179,7 +179,7 @@ function CartInner(props: { cart: CartData | undefined }) {
           <div class="mt-6">
             <button
               type="button"
-              class="w-full bg-gray-700 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-gray-700"
+              class="w-full bg-gray-700 dark:bg-darkgray border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-gray-700 dark:hover:bg-white"
               disabled={props.cart.lines.nodes.length === 0}
               onClick={checkout}
             >

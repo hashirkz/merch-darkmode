@@ -79,7 +79,7 @@ export default function Cart() {
 function CartInner(props: { cart: CartData | undefined }) {
   const corners = "rounded(tl-2xl tr-2xl sm:(tr-none bl-2xl))";
   const card =
-    `py-8 px-6 h-full bg-white ${corners} flex flex-col justify-between`;
+    `py-8 px-6 h-full bg-darkgray ${corners} flex flex-col justify-between dark:bg-darkgray`;
   const { data: cart } = useCart();
 
   const checkout = (e: Event) => {
@@ -98,7 +98,7 @@ function CartInner(props: { cart: CartData | undefined }) {
   return (
     <div class={card}>
       <div class="flex justify-between">
-        <h2 class="text-lg font-medium text-gray-900">Shopping Cart</h2>
+        <h2 class="text-lg font-medium text-gray-900 dark:text-white">Shopping Cart</h2>
         <button
           class="py-1"
           onClick={(e) => {
@@ -117,7 +117,7 @@ function CartInner(props: { cart: CartData | undefined }) {
       {props.cart && (
         <div class="flex-grow-1 my-4">
           {props.cart.lines.nodes.length === 0
-            ? <p class="text-gray-700">There are no items in the cart.</p>
+            ? <p class="text-gray-700 dark:text-white">There are no items in the cart.</p>
             : (
               <ul role="list" class="-my-6 divide-y divide-gray-200">
                 {props.cart.lines.nodes.map((line) => (
@@ -132,13 +132,13 @@ function CartInner(props: { cart: CartData | undefined }) {
                     </div>
                     <div class="ml-4 flex flex-1 flex-col">
                       <div>
-                        <div class="flex justify-between text-base font-medium text-gray-900">
+                        <div class="flex justify-between text-base font-medium text-gray-900 dark:text-white">
                           <h3>{line.merchandise.product.title}</h3>
                           <p class="ml-4">
                             {formatCurrency(line.estimatedCost.totalAmount)}
                           </p>
                         </div>
-                        <p class="mt-1 text-sm text-gray-500">
+                        <p class="mt-1 text-sm text-gray-500 dark:text-white">
                           {line.merchandise.title !==
                               line.merchandise.product.title
                             ? line.merchandise.title
@@ -146,7 +146,7 @@ function CartInner(props: { cart: CartData | undefined }) {
                         </p>
                       </div>
                       <div class="flex flex-1 items-end justify-between text-sm">
-                        <p class="text-gray-500">
+                        <p class="text-gray-500 dark:text-white">
                           Quantity <strong>{line.quantity}</strong>
                         </p>
 
@@ -173,7 +173,7 @@ function CartInner(props: { cart: CartData | undefined }) {
             <p>Subtotal</p>
             <p>{formatCurrency(props.cart.estimatedCost.totalAmount)}</p>
           </div>
-          <p class="mt-0.5 text-sm text-gray-500">
+          <p class="mt-0.5 text-sm text-gray-500 dark:text-white">
             Shipping and taxes calculated at checkout.
           </p>
           <div class="mt-6">

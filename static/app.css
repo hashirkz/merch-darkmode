@@ -1,9 +1,22 @@
-body {
-  background: #f9f9f9;
+@media (prefers-color-scheme: light) {
+  body {
+    background: #f9f9f9;
+  }
+  
+  .rainfall {
+    background-color: transparent;
+    background-image: url("/raindrops-animate.svg");
+  }
 }
 
-.rainfall {
-  background-color: transparent;
-  background-image: url("/raindrops-animate.svg");
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #18181b;
+  }
+  .rainfall {
+    background-color: transparent;
+    background-image: url("/raindrops-animate.svg");
+  }
 }
+
 
